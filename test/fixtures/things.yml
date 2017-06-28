@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  frequency_in_days: 1
+  title: MyString
+  notes: MyText
+  duration_in_minutes: 1
+  location: MyString
+
+two:
+  frequency_in_days: 1
+  title: MyString
+  notes: MyText
+  duration_in_minutes: 1
+  location: MyString

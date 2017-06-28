@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Doings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Duration in minutes</th>
+      <th>Thing</th>
+      <th>Done at</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @doings.each do |doing| %>
+      <tr>
+        <td><%= doing.duration_in_minutes %></td>
+        <td><%= doing.thing %></td>
+        <td><%= doing.done_at %></td>
+        <td><%= link_to 'Show', doing %></td>
+        <td><%= link_to 'Edit', edit_doing_path(doing) %></td>
+        <td><%= link_to 'Destroy', doing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Doing', new_doing_path %>

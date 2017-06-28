@@ -1,0 +1,32 @@
+<%= form_with(model: doing, local: true) do |form| %>
+  <% if doing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(doing.errors.count, "error") %> prohibited this doing from being saved:</h2>
+
+      <ul>
+      <% doing.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :duration_in_minutes %>
+    <%= form.number_field :duration_in_minutes, id: :doing_duration_in_minutes %>
+  </div>
+
+  <div class="field">
+    <%= form.label :thing_id %>
+    <%= form.text_field :thing_id, id: :doing_thing_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :done_at %>
+    <%= form.datetime_select :done_at, id: :doing_done_at %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

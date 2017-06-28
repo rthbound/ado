@@ -1,0 +1,42 @@
+<%= form_with(model: thing, local: true) do |form| %>
+  <% if thing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(thing.errors.count, "error") %> prohibited this thing from being saved:</h2>
+
+      <ul>
+      <% thing.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :frequency_in_days %>
+    <%= form.number_field :frequency_in_days, id: :thing_frequency_in_days %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :thing_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.text_area :notes, id: :thing_notes %>
+  </div>
+
+  <div class="field">
+    <%= form.label :duration_in_minutes %>
+    <%= form.number_field :duration_in_minutes, id: :thing_duration_in_minutes %>
+  </div>
+
+  <div class="field">
+    <%= form.label :location %>
+    <%= form.text_field :location, id: :thing_location %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,14 @@
+<h1>Home#index</h1>
+
+<%= form_for Doing.new do |f| %>
+  <%= f.label(:thing_id, "Which Thing") %>
+  <%= f.collection_select(:thing_id, @things, :id, :title, prompt: true) %>
+
+  <%= f.label(:duration_in_minutes, "How many minutes did it take?") %>
+  <%= f.hidden_field(:done_at, value: Time.now) %>
+  <%= f.number_field(:duration_in_minutes) %>
+  <%= f.submit "Done" %>
+<% end %>
+
+<%= render partial: "things/index" %>
+

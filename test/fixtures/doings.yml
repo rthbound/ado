@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  duration_in_minutes: 1
+  thing: one
+  done_at: 2017-06-17 14:56:14
+
+two:
+  duration_in_minutes: 1
+  thing: two
+  done_at: 2017-06-17 14:56:14

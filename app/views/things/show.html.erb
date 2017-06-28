@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Frequency in days:</strong>
+  <%= @thing.frequency_in_days %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @thing.title %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @thing.notes %>
+</p>
+
+<p>
+  <strong>Duration in minutes:</strong>
+  <%= @thing.duration_in_minutes %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @thing.location %>
+</p>
+
+<%= link_to 'Edit', edit_thing_path(@thing) %> |
+<%= link_to 'Back', things_path %>

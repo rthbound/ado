@@ -1,0 +1,44 @@
+<h1>Things</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Frequency in days</th>
+      <th>Title</th>
+      <th>Notes</th>
+      <th>Duration in minutes</th>
+      <th>Location</th>
+      <th>Last Done</th>
+      <th>Due again</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @things.each do |thing| %>
+      <tr>
+        <td><%= thing.frequency_in_days %></td>
+        <td><%= thing.title %></td>
+        <td><%= thing.notes %></td>
+        <td><%= thing.duration_in_minutes %></td>
+        <td><%= thing.location %></td>
+        <% if thing.doings.exists? %>
+          <%= timing_info(thing) %>
+        <% else %>
+          <td>
+            <%= form_for thing.doings.new do |f| %>
+              <%= f.hidden_field(:thing_id, value: thing.id) %>
+              <%= label_tag(:days_ago) %>
+              <%= number_field_tag(:days_ago) %>
+              <%= f.submit %>
+            <% end %>
+          </td>
+          <td></td>
+        <% end %>
+        <td><%= link_to 'Show', thing %></td>
+        <td><%= link_to 'Edit', edit_thing_path(thing) %></td>
+        <td><%= link_to 'Destroy', thing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

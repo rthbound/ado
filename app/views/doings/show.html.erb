@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Duration in minutes:</strong>
+  <%= @doing.duration_in_minutes %>
+</p>
+
+<p>
+  <strong>Thing:</strong>
+  <%= @doing.thing %>
+</p>
+
+<p>
+  <strong>Done at:</strong>
+  <%= @doing.done_at %>
+</p>
+
+<%= link_to 'Edit', edit_doing_path(@doing) %> |
+<%= link_to 'Back', doings_path %>
