@@ -19,6 +19,8 @@ Thing.create([
   { location: "Kitchen / Dining", frequency_in_days: 1, title: "Clean sinks", duration_in_minutes: 10 },
   { location: "Kitchen / Dining", frequency_in_days: 7, title: "Clean fronts of all appliances", duration_in_minutes: 10 },
   { location: "Kitchen / Dining", frequency_in_days: 7, title: "Dust window sills, ledges, blinds", duration_in_minutes: 10 },
+  { location: "Living Area", frequency_in_days: 7, title: "Dust fans and light fixtures", duration_in_minutes: 10 },
+  { location: "Living Area", frequency_in_days: 7, title: "Vacuum rugs", duration_in_minutes: 20 },
   { location: "Kitchen / Dining", frequency_in_days: 7, title: "Clean microwave", duration_in_minutes: 10 },
   { location: "Kitchen / Dining", frequency_in_days: 7, title: "Do dishes", duration_in_minutes: 10 },
   { location: "Home", frequency_in_days: 10, title: "Clean baseboards", duration_in_minutes: 15 },

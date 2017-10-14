@@ -29,7 +29,7 @@ class DoingsController < ApplicationController
 
     respond_to do |format|
       if @doing.save
-        format.html { redirect_to request.referer || root_path, notice: 'Doing was successfully created.' }
+        format.html { redirect_to request.referer || root_path, notice: "You did \"#{@doing.thing.title}\" #{@doing.thing.done_ago} ago" }
         format.json { render :show, status: :created, location: @doing }
       else
         format.html { render :new }

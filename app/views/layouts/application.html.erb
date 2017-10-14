@@ -3,12 +3,47 @@
   <head>
     <title>Ado</title>
     <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
+    <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css', \
+                            media: 'all', \
+                            'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js', \
+                               'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class='ui container'>
+      <div class="ui text menu">
+        <a href="/" class="item brand">
+          <h1 style="font-family: 'Satisfy', cursive;">Ado</h1>
+        </a>
+        <%= link_to new_thing_path, class: 'item' do %>
+          <i class="plus icon"></i>
+          Add a Thing
+        <% end %>
+        <div class="ui right dropdown item">
+          More
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item">Stub Sr.</div>
+            <div class="item">Second Stub</div>
+            <div class="item">Stub III</div>
+          </div>
+        </div>
+      </div>
+      <% if notice %>
+        <p>
+          <div class='ui green message'>
+            <%= notice %>
+          </div>
+        </p>
+      <% end %>
+
+      <%= yield %>
+    </div>
   </body>
 </html>

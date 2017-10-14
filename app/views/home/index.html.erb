@@ -1,5 +1,3 @@
-<h1>Home#index</h1>
-
 <%= form_for Doing.new do |f| %>
   <%= f.label(:thing_id, "Which Thing") %>
   <%= f.collection_select(:thing_id, @things, :id, :title, prompt: true) %>
