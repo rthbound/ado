@@ -16,34 +16,48 @@
   </head>
 
   <body>
-    <div class='ui container'>
-      <div class="ui text menu">
-        <a href="/" class="item brand">
-          <h1 style="font-family: 'Satisfy', cursive;">Ado</h1>
-        </a>
-        <%= link_to new_thing_path, class: 'item' do %>
-          <i class="plus icon"></i>
-          Add a Thing
-        <% end %>
-        <div class="ui right dropdown item">
-          More
-          <i class="dropdown icon"></i>
-          <div class="menu">
-            <div class="item">Stub Sr.</div>
-            <div class="item">Second Stub</div>
-            <div class="item">Stub III</div>
+    <% if devise_controller? %>
+      <%= yield %>
+    <% else %>
+      <div class='ui container'>
+        <div class="ui text menu">
+          <a href="/" class="item">
+            <h1 style="font-family: 'Satisfy', cursive;" class="ui teal header">Ado</h1>
+          </a>
+          <%= link_to new_thing_path, class: 'item' do %>
+            <i class="plus icon"></i>
+            Add a Thing
+          <% end %>
+          <div class="ui right dropdown item">
+            More
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              <div class="item">
+                <%= link_to('History', doings_path) %>
+              </div>
+              <div class="item">
+                <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <% if notice %>
-        <p>
-          <div class='ui green message'>
-            <%= notice %>
-          </div>
-        </p>
-      <% end %>
+        <% if alert %>
+          <p>
+            <div class='ui yellow message'>
+              <%= alert %>
+            </div>
+          </p>
+        <% end %>
+        <% if notice %>
+          <p>
+            <div class='ui green message'>
+              <%= notice %>
+            </div>
+          </p>
+        <% end %>
 
-      <%= yield %>
-    </div>
+        <%= yield %>
+      </div>
+    <% end %>
   </body>
 </html>

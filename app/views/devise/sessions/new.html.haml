@@ -1,0 +1,33 @@
+.ui.middle.aligned.center.aligned.grid
+  .column
+    .ui.teal.image.header
+      %h1{ style: "font-family: 'Satisfy', cursive; font-size: 6rem;" } Ado
+      .content
+        Log-in to your account
+    = form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "ui massive form" }) do |f|
+      .ui.stacked.segment
+        .field
+          .ui.left.icon.input
+            %i.user.icon
+            = f.email_field :email, autofocus: true, placeholder: "email"
+        .field
+          .ui.left.icon.input
+            %i.lock.icon
+            = f.password_field :password, autocomplete: "off", placeholder: "password"
+        = f.submit "Login", class: 'ui fluid large teal submit button'
+    - if alert
+      .ui.error.message=alert
+
+:css
+  body {
+    background-color: #DADADA;
+  }
+  body > .grid {
+    height: 100%;
+  }
+  .image {
+    margin-top: -100px;
+  }
+  .column {
+    max-width: 450px;
+  }

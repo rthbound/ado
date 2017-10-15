@@ -32,6 +32,12 @@
               .header
                 Location
               .description= thing.location
+      .extra.content
+        = link_to edit_thing_path(thing), class: 'ui right floated' do
+          %i.edit.icon
+          Edit
+        %span
+          = "Done #{pluralize(thing.doings.count, "time")}"
       = form_for thing.doings.new do |f|
         = f.hidden_field(:thing_id, value: thing.id)
         = f.hidden_field(:days_ago, value: 0)

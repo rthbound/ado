@@ -26,6 +26,11 @@
     <%= form.datetime_select :done_at, id: :doing_done_at %>
   </div>
 
+  <div class="field">
+    <%= form.label :user_id, "Done by" %>
+    <%= form.select :user_id, User.all.collect {|u| [ u.email, u.id ] }, { include_blank: true } %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

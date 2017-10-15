@@ -26,6 +26,7 @@ class DoingsController < ApplicationController
   def create
     @doing = Doing.new(doing_params)
     @doing.done_at ||= params[:days_ago].to_i.days.ago
+    @doing.user = current_user
 
     respond_to do |format|
       if @doing.save

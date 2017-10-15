@@ -7,6 +7,7 @@ gem 'arel', github: "rails/arel"
 gem 'pry'
 gem 'haml-rails'
 gem 'jquery-rails'
+gem 'devise'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
