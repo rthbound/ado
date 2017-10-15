@@ -1,24 +1,19 @@
-# README
+# Ado
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ado is an affectionate acronym for an app that's basically "A Doings Organizer"
 
-Things you may want to cover:
+I created this for my family to keep up on household tasks -- things that need doing.
 
-* Ruby version
+The main idea is you provide a list of things, specify how often each thing should be done, and then tell the app when you do the things.
 
-* System dependencies
+The things are sorted such that the most overdue (or soonest to be due) items appear first in the list.
 
-* Configuration
+No notifications, no reminders, not yet. The tasks (Things) are currently not assigned to anyone, but we are recording which user is doing the Doings when the Things get done.
 
-* Database creation
+We'll continue tweaking, adding features, and improving the designs over time.
 
-* Database initialization
+# Registration
 
-* How to run the test suite
+Registration is currently disabled -- the app I've deployed is just for my wife and I. You can see its gawgeous login page here: https://www.ado.life
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+If you'd like to use it, you can run it on localhost or fork and deploy it for yourselves. It should be trivial to deploy on heroku for free (just disable "force_ssl" in config/environments/production.rb).
