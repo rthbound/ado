@@ -17,3 +17,6 @@ We'll continue tweaking, adding features, and improving the designs over time.
 Registration is currently disabled -- the app I've deployed is just for my wife and I. You can see its gawgeous login page here: https://www.ado.life
 
 If you'd like to use it, you can run it on localhost or fork and deploy it for yourselves. It should be trivial to deploy on heroku for free (just disable "force_ssl" in config/environments/production.rb).
+
+# Screenshot
+![Screenshot](https://github.com/rthbound/ado/raw/master/screenshots/ado00.png)
