@@ -23,7 +23,7 @@ class Thing < ApplicationRecord
 
   def self.sorted_by_dueness
     includes(:doings).sort_by do |t|
-      t.doings.last&.done_at&.send(:+,t.frequency_in_days.days) || (Time.at(0) - t.frequency_in_days.days)
+      t.doings.last&.done_at&.send(:+,t.frequency_in_days.days) || (Time.at(0) + t.frequency_in_days.days)
     end
   end
 
