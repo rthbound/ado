@@ -4,7 +4,8 @@ class ThingsController < ApplicationController
   # GET /things
   # GET /things.json
   def index
-    @things = Thing.includes(:doings).sort_by {|t| t.doings.last&.done_at&.send(:+,t.frequency_in_days.days) || Time.at(0) }
+    @overdue_things = Thing.overdue.sorted_by_dueness
+    @current_things = Thing.current.sorted_by_dueness
   end
 
   # GET /things/1

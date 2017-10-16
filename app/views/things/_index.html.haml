@@ -1,44 +1,19 @@
 %h1.ui.header Things to Do
-.ui.three.stackable.cards
-  - @things.each do |thing|
-    .card{ class: "#{color(thing)}" }
-      - if thing.overdue?
-        .ui.right.corner.label
-          %i.warning.icon
-      .content
-        .header= thing.title 
-        - if thing.last_doing.present?
-          .meta
-            %span= thing.last_done_string
-        .meta
-          %span= thing.due_string
-      .content
-        .ui.relaxed.divided.list
-          .item
-            %i.large.middle.aligned.vertically.flipped.history.icon
-            .content
-              .header
-                Frequency
-              .description= "Do every #{pluralize(thing.frequency_in_days, "day")}"
-          .item
-            %i.large.middle.aligned.hourglass.start.icon
-            .content
-              .header
-                Duration
-              .description= "Takes about #{pluralize(thing.duration_in_minutes, "minute")}"
-          .item
-            %i.large.middle.aligned.home.icon
-            .content
-              .header
-                Location
-              .description= thing.location
-      .extra.content
-        = link_to edit_thing_path(thing), class: 'ui right floated' do
-          %i.edit.icon
-          Edit
-        %span
-          = "Done #{pluralize(thing.doings.count, "time")}"
-      = form_for thing.doings.new do |f|
-        = f.hidden_field(:thing_id, value: thing.id)
-        = f.hidden_field(:days_ago, value: 0)
-        = f.submit "Just did this", class: 'ui bottom attached fluid button'
+.ui.tabular.two.item.menu
+  .ui.left.floated.item.active{ data: { tab: 'incomplete' } }
+    %strong.ui Incomplete Things
+    .ui.red.label= @overdue_things.count
+  .item{ data: { tab: 'complete' } }
+    %strong="Completed Things"
+    .ui.green.label= @current_things.count
+.ui.basic.active.tab.segment{ data: { tab: 'incomplete' } }
+  - if @overdue_things.any?
+    = render "cards", things: @overdue_things
+  - else
+    %p Everything is done! Relax and enjoy yourselves!
+    .ui.center.aligned.basic.segment
+      %i.ui.massive.red.heart.icon.middle.aligned
+      %i.ui.massive.teal.handshake.icon.middle.aligned
+      %i.ui.massive.yellow.star.icon.middle.aligned
+.ui.basic.tab.segment{ data: { tab: 'complete' } }
+  = render "cards", things: @current_things
